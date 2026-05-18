@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Lorenzana • Premium Fitness</title>
+    <style>
+        /* --- ESTILO INSPIRADO EN APPLE FITNESS+ & SPOTIFY --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #050505; /* Negro profundo puro estilo Netflix/Apple */
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Contenedor principal estilo App */
+        .app-container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Encabezado elegante y minimalista */
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #1c1c1e;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header span {
+            color: #1ed760; /* Verde Neón Spotify/Apple Fitness */
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #f5f5f7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Grilla Responsiva de Ejercicios (Grid de Apps Modernas) */
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Tarjeta de Ejercicio Premium */
+        .workout-card {
+            background-color: #121212; /* Tarjetas grises oscuras elevadas */
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #1c1c1e;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Efecto hover sutil como Spotify */
+        .workout-card:hover {
+            transform: translateY(-4px);
+            border-color: #2c2c2e;
+        }
+
+        /* Contenedor del Video Nativo */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background-color: #000;
+            line-height: 0;
+            border-bottom: 1px solid #1c1c1e;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contenido de la Tarjeta */
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 14px;
+            letter-spacing: -0.3px;
+        }
+
+        /* Lista de tips limpia e intuitiva */
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            font-size: 0.95rem;
+            color: #a1a1a6; /* Gris texto secundario de Apple */
+            margin-bottom: 12px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .tips-list li::before {
+            content: "•";
+            color: #1ed760; /* El punto de la lista es verde neón */
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .tips-list b {
+            color: #f5f5f7; /* Resalta las palabras clave en blanco brillante */
+        }
+
+        /* Footer minimalista de marca */
+        footer {
+            text-align: center;
+            padding: 40px 0 20px 0;
+            font-size: 0.85rem;
+            color: #424245;
+            border-top: 1px solid #1c1c1e;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Jonathan Lorenzana</h1>
+            <span>Elite Personal Training</span>
+        </header>
+
+        <main>
+            <h2 class="section-title">Rutina de Hoy: Enfoque de Piernas</h2>
+
+            <div class="workout-grid">
+
+                <div class="workout-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline controlsList="nodownload">
+                            <source src="videos/sentadillas.mp4" type="video/mp4">
+                            Tu navegador no soporta video nativo.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>Sentadillas con Mancuernas</h3>
+                        <ul class="tips-list">
+                            <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
+                            <li><b>Peso:</b> Pesas de 15 Lbs por brazo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="workout-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline controlsList="nodownload">
+                            <source src="videos/extensiones de cuadricps.mp4" type="video/mp4">
+                            Tu navegador no soporta video nativo.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>Extensiones</h3>
+                        <ul class="tips-list">
+                            <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
+                            <li><b>Peso:</b> Peso entre 3 y 4 platillos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="workout-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline controlsList="nodownload">
+                            <source src="videos/femoral acostado.mp4" type="video/mp4">
+                            Tu navegador no soporta video nativo.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>Curl Femoral</h3>
+                        <ul class="tips-list">
+                            <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
+                            <li><b>Peso:</b> Peso entre 3 y 4 platillos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="workout-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline controlsList="nodownload">
+                            <source src="videos/desplantes.mp4" type="video/mp4">
+                            Tu navegador no soporta video nativo.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>Desplantes</h3>
+                        <ul class="tips-list">
+                            <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones por pierna.</li>
+                            <li><b>Peso:</b> Pesas de 10 Lbs por brazo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="workout-card">
+                    <div class="video-wrapper">
+                        <video controls playsinline controlsList="nodownload">
+                            <source src="videos/cardio en caminadora.mp4" type="video/mp4">
+                            Tu navegador no soporta video nativo.
+                        </video>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cardio en Caminadora</h3>
+                        <ul class="tips-list">
+                            <li><b>Tiempo:</b> Vamos a realizar 40 minutos a una velocidad moderada, es decir entre trotando y caminando rápido.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
+    </footer>
+
+</body>
+</html>
