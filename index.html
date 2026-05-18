@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Lorenzana - Panel de Entrenamiento</title>
+    <style>
+        /* Estilos base elegantes - Fondo oscuro y acentos Cyan */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0f12; /* Fondo oscuro premium */
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #161a20;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00b4d8; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header span {
+            color: #00b4d8;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            border-left: 4px solid #00b4d8;
+            padding-left: 10px;
+        }
+
+        .card-ejercicio {
+            background-color: #161a20;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid #242b35;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor del Video Adaptable */
+        .video-container {
+            position: relative;
+            width: 100%;
+            background-color: #000;
+            overflow: hidden;
+            line-height: 0; /* Elimina espacios vacíos abajo del video */
+        }
+
+        /* Estilos para que el video nativo ocupe todo el ancho y se vea pro */
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .info-ejercicio {
+            padding: 20px;
+        }
+
+        .info-ejercicio h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #00b4d8;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #ced4da;
+        }
+
+        footer {
+            background-color: #090b0d;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            border-top: 1px solid #161a20;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jonathan Lorenzana</h1>
+        <span>Entrenador Personal • Plataforma de Alumnos</span>
+    </header>
+
+    <main>
+        <h2>Rutina de Hoy: Enfoque de Piernas</h2>
+
+        <div class="card-ejercicio">
+            
+            <div class="video-container">
+                <video controls playsinline controlsList="nodownload">
+                    <source src="videos/sentadillas.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video nativo.
+                </video>
+            </div>
+
+            <div class="info-ejercicio">
+                <h3>Sentadillas con Mancuernas (Rango Completo)</h3>
+                
+                <ul class="tips-list">
+                    <li>🔥 <b>Cuida tu postura:</b> Pecho arriba y espalda recta en todo momento.</li>
+                    <li>🛑 <b>Hazlas despacio:</b> Baja bajo control, no te dejes caer.</li>
+                    <li>🦶 <b>Pies juntos:</b> Mantén los pies pegados o casi tocándose.</li>
+                    <li>📉 <b>Baja al máximo:</b> Rompe el paralelo, desciende lo más que puedas.</li>
+                    <li>👟 <b>Talones al piso:</b> Empuja con toda la planta, no te levantes en puntas.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Jonathan Lorenzana Entrenador Personal. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
