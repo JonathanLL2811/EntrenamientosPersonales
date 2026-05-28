@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Mantenimiento • Premium Fitness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-btn:hover {
+            color: #1ed760;
+        }
+
+        header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #1c1c1e;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header span {
+            color: #1ed760;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .meta-info {
+            background-color: #1c1c1e;
+            border-left: 4px solid #1ed760;
+            padding: 16px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+            color: #f5f5f7;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #f5f5f7;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .dieta-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .diet-card {
+            background-color: #121212;
+            border-radius: 16px;
+            border: 1px solid #1c1c1e;
+            padding: 24px;
+        }
+
+        .diet-card h3 {
+            font-size: 1.15rem;
+            color: #1ed760;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #1c1c1e;
+            padding-bottom: 8px;
+        }
+
+        .meal-list {
+            list-style: none;
+        }
+
+        .meal-list li {
+            font-size: 0.95rem;
+            color: #a1a1a6;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .meal-list b {
+            color: #ffffff;
+        }
+
+        .badge-tag {
+            background-color: #2c2c2e;
+            color: #a1a1a6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px 0;
+            font-size: 0.85rem;
+            color: #424245;
+            border-top: 1px solid #1c1c1e;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <a href="dieta.html" class="back-btn">⬅ Re-calcular Calorías</a>
+
+        <header>
+            <h1>Balance Normocalórico</h1>
+            <span>Plan Estándar de Mantenimiento</span>
+        </header>
+
+        <div class="meta-info">
+            ⚖️ <b>Estrategia de Enfoque:</b> Tu energía se encuentra en perfecto equilibrio. Este menú aporta las porciones exactas para sostener tu peso actual, optimizar tus entrenamientos y evitar tanto la acumulación de grasa como la pérdida de masa muscular, utilizando alimentos limpios del entorno hondureño.
+        </div>
+
+        <main class="dieta-timeline">
+            
+            <h2 class="section-title">Estructura Nutricional Estándar</h2>
+
+            <!-- Opción de Menú A -->
+            <div class="diet-card">
+                <h3>Estructura 1 (Días de Entrenamiento Intenso)</h3>
+                <ul class="meal-list">
+                    <li><span class="badge-tag">Desayuno</span><b>Desayuno Energético:</b> 2 huevos enteros revueltos con tomate y cebolla, 1 taza completa de frijoles cocidos enteros, 1.5 onzas de queso fresco o cuajada, y 2 tortillas de maíz medianas.</li>
+                    <li><span class="badge-tag">Almuerzo</span><b>Almuerzo Completo:</b> 160g de pechuga de pollo o filete de res magra a la plancha, 1 taza de arroz blanco o integral cocido, 1/2 taza de plátano maduro horneado o cocido, y ensalada fresca de repollo o lechuga aliñada con limón.</li>
+                    <li><span class="badge-tag">Merienda</span><b>Snack Saludable:</b> 1/2 aguacate mediano con sal y pimienta, acompañado de 1 tortilla de maíz tostada al comal.</li>
+                    <li><span class="badge-tag">Cena</span><b>Cena Estructural:</b> 150g de filete de pescado (tilapia) o pollo desmenuzado, 1/2 taza de puré de papa casero (sin mantequilla cremosa en exceso) o pataste cocido, y vegetales verdes salteados.</li>
+                </ul>
+            </div>
+
+            <!-- Opción de Menú B -->
+            <div class="diet-card">
+                <h3>Estructura 2 (Días de Actividad Moderada)</h3>
+                <ul class="meal-list">
+                    <li><span class="badge-tag">Desayuno</span><b>Carga Sostenida:</b> 3 huevos (2 enteros + 1 clara) cocinados con hongo o espinaca, 1 plátano maduro entero cocido (hervido o al horno) y 1 taza de café negro o con un chorrito de leche descremada sin azúcar.</li>
+                    <li><span class="badge-tag">Almuerzo</span><b>Bistec Casero:</b> 150g de carne de res magra encebollada, 1 taza de frijoles de la olla, 1 tortilla de maíz y una porción abundante de verduras al vapor (zanahoria, calabacita/ayote tierno y patastillo).</li>
+                    <li><span class="badge-tag">Merienda</span><b>Fruta y Proteína:</b> 1 taza de papaya o piña picada junto con un puñado pequeño (1 onza) de semillas de marañón o almendras naturales.</li>
+                    <li><span class="badge-tag">Cena</span><b>Cena Rápida Balanceada:</b> 2 tortillas con quesillo artesanal (tipo baleada ligera pero solo con quesillo derretido al comal) acompañadas de 120g de pechuga de pollo en tiras y rodajas de tomate.</li>
+                </ul>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
+    </footer>
+</body>
+</html>

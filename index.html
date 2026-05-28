@@ -325,83 +325,22 @@
                 <div class="arrow-btn">➔</div>
             </a>
 
-
-
-
-            <div class="section-label">Evaluación Rápida</div>
-            <section id="imc-calculator">
-                <h2>Calculadora de Índice de Masa Corporal (IMC)</h2>
-                <p>Ingresa tus datos actuales para conocer tu estado de composición corporal de forma inmediata.</p>
-                
-                <div class="imc-form">
-                    <div class="input-group">
-                        <label for="weight">Peso (Kilogramos)</label>
-                        <input type="number" id="weight" placeholder="Ej: 75" step="0.1" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="height">Estatura (Metros)</label>
-                        <input type="number" id="height" placeholder="Ej: 1.72" step="0.01" required>
-                    </div>
-                    <button class="calc-btn" onclick="calcularIMC()">Calcular Mi Estado Actual</button>
-                    
-                    <div class="imc-result" id="result-box">
-                        <div class="imc-value" id="imc-val">--.-</div>
-                        <div class="imc-status" id="imc-stat">--</div>
-                    </div>
+ <a href="dieta.html" class="routine-link-card">
+                <div class="routine-info">
+                    <h2>Plan De Alimentacion Estandar.</h2>
+                    <p>Accede a tu dieta estandar segun tu peso</p>
                 </div>
-            </section>
+                <div class="arrow-btn">➔</div>
+            </a>
 
-            <div class="section-label">Asesoría Élite</div>
-            <section id="custom-plan" class="whatsapp-section">
-                <h2>¿Listo para llevar tu físico al siguiente nivel?</h2>
-                <p>Si buscas un cambio radical y definitivo, necesitas un plan estructurado a tu medida. Escríbeme directamente para diseñar tu <b>Plan Alimenticio Personalizado</b> y una <b>Rutina de Entrenamiento Individual</b> completamente adaptada a tus objetivos, estilo de vida y nivel actual.</p>
-                <a href="https://wa.me/50498013702?text=Hola%20Jonathan,%20estoy%20interesado%20en%20armar%20mi%20plan%20alimenticio%20y%20una%20rutina%20personalizada%20con contigo." target="_blank" class="whatsapp-btn">
-                    💬 Solicitar Mi Plan Personalizado
-                </a>
-            </section>
 
-        </main>
-    </div>
+
+            
 
     <footer>
         &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
     </footer>
 
-    <script>
-        function calcularIMC() {
-            const peso = parseFloat(document.getElementById('weight').value);
-            const estatura = parseFloat(document.getElementById('height').value);
-            const resultBox = document.getElementById('result-box');
-            const imcVal = document.getElementById('imc-val');
-            const imcStat = document.getElementById('imc-stat');
-
-            if (!peso || !estatura || peso <= 0 || estatura <= 0) {
-                alert("Por favor, ingresa valores válidos de peso y estatura.");
-                return;
-            }
-
-            const imc = (peso / (estatura * estatura)).toFixed(1);
-            imcVal.innerText = imc;
-            resultBox.style.display = "block";
-
-            if (imc < 18.5) {
-                imcStat.innerText = "Bajo Peso (Requiere superávit calórico)";
-                imcVal.style.color = "#3498db";
-                imcStat.style.color = "#3498db";
-            } else if (imc >= 18.5 && imc <= 24.9) {
-                imcStat.innerText = "Peso Saludable (Estado Óptimo)";
-                imcVal.style.color = "#1ed760";
-                imcStat.style.color = "#1ed760";
-            } else if (imc >= 25.0 && imc <= 29.9) {
-                imcStat.innerText = "Sobrepeso (Recomendado enfoque de oxidación)";
-                imcVal.style.color = "#f1c40f";
-                imcStat.style.color = "#f1c40f";
-            } else {
-                imcStat.innerText = "Obesidad (Alerta: Requiere intervención y déficit calorico)";
-                imcVal.style.color = "#e74c3c";
-                imcStat.style.color = "#e74c3c";
-            }
-        }
-    </script>
+    
 </body>
 </html>

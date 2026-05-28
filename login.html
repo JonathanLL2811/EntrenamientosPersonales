@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso • Premium Fitness</title>
+    <style>
+        /* --- ESTILO REUTILIZADO INSPIRADO EN APPLE FITNESS+ & SPOTIFY --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            max-width: 420px;
+            width: 100%;
+            background-color: #121212;
+            border-radius: 16px;
+            border: 1px solid #1c1c1e;
+            padding: 40px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header span {
+            color: #1ed760;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-top: 6px;
+        }
+
+        /* Selector de pestaña interno */
+        .auth-tabs {
+            display: flex;
+            background-color: #1c1c1e;
+            padding: 4px;
+            border-radius: 8px;
+            margin-bottom: 28px;
+        }
+
+        .auth-tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #a1a1a6;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .auth-tab-btn.active {
+            background-color: #2c2c2e;
+            color: #1ed760;
+        }
+
+        /* Formularios */
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #a1a1a6;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            background-color: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #1ed760;
+            box-shadow: 0 0 8px rgba(30, 215, 96, 0.2);
+        }
+
+        .status-message {
+            font-size: 0.85rem;
+            margin-top: 8px;
+            display: none;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .status-message.error {
+            color: #ff3b30;
+        }
+
+        .status-message.success {
+            color: #1ed760;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background-color: #1ed760;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            background-color: #1db954;
+        }
+
+        .btn-submit:disabled {
+            background-color: #424245;
+            color: #a1a1a6;
+            cursor: not-allowed;
+        }
+
+        .btn-submit:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 24px;
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <header>
+            <h1>Panel Élite</h1>
+            <span>Premium Fitness System</span>
+        </header>
+
+        <div class="auth-tabs">
+            <button id="tabLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+            <button id="tabRegister" class="auth-tab-btn" onclick="switchAuthTab('register')">Registrarse</button>
+        </div>
+
+        <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+                <label for="loginEmail">Correo Electrónico</label>
+                <input type="email" id="loginEmail" placeholder="ejemplo@correo.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Contraseña</label>
+                <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                <div id="loginStatus" class="status-message"></div>
+            </div>
+
+            <button type="submit" id="loginSubmitBtn" class="btn-submit">Ingresar al Panel</button>
+        </form>
+
+        <form id="registerForm" class="auth-form">
+            <div class="form-group">
+                <label for="registerEmail">Correo Electrónico</label>
+                <input type="email" id="registerEmail" placeholder="nuevo@correo.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="registerPassword">Contraseña (Mínimo 6 caracteres)</label>
+                <input type="password" id="registerPassword" placeholder="••••••••" required autocomplete="new-password">
+                <div id="registerStatus" class="status-message"></div>
+            </div>
+
+            <button type="submit" id="registerSubmitBtn" class="btn-submit">Crear Cuenta</button>
+        </form>
+
+        <a href="index.html" class="back-home">← Volver al Inicio</a>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        // Tus credenciales reales proporcionadas
+        const firebaseConfig = {
+            apiKey: "AIzaSyBePnuPKzhwU_Tc0AFxdA2dW14QJxQ2XdE",
+            authDomain: "premium-fitness-auth.firebaseapp.com",
+            projectId: "premium-fitness-auth",
+            storageBucket: "premium-fitness-auth.firebasestorage.app",
+            messagingSenderId: "60016569142",
+            appId: "1:60016569142:web:00167b392a887f2b6c2197",
+            measurementId: "G-HTVEX9WDS3"
+        };
+
+        // Inicializar servicios
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Elementos de la interfaz - Login
+        const loginForm = document.getElementById('loginForm');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const loginStatus = document.getElementById('loginStatus');
+
+        // Elementos de la interfaz - Registro
+        const registerForm = document.getElementById('registerForm');
+        const registerSubmitBtn = document.getElementById('registerSubmitBtn');
+        const registerStatus = document.getElementById('registerStatus');
+
+        // LÓGICA DE INICIO DE SESIÓN
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const pass = document.getElementById('loginPassword').value;
+
+            loginSubmitBtn.disabled = true;
+            loginSubmitBtn.innerText = "Verificando...";
+            loginStatus.style.display = "none";
+            loginStatus.className = "status-message";
+
+            signInWithEmailAndPassword(auth, email, pass)
+                .then((userCredential) => {
+                    loginStatus.innerText = "¡Acceso concedido! Redirigiendo...";
+                    loginStatus.classList.add("success");
+                    loginStatus.style.display = "block";
+
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 1300);
+                })
+                .catch((error) => {
+                    loginSubmitBtn.disabled = false;
+                    loginSubmitBtn.innerText = "Ingresar al Panel";
+                    loginStatus.classList.add("error");
+                    loginStatus.style.display = "block";
+
+                    if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                        loginStatus.innerText = "El correo o la contraseña son incorrectos.";
+                    } else if (error.code === 'auth/too-many-requests') {
+                        loginStatus.innerText = "Acceso bloqueado temporalmente por seguridad. Intenta más tarde.";
+                    } else {
+                        loginStatus.innerText = "Error de autenticación: " + error.message;
+                    }
+                });
+        });
+
+        // LÓGICA DE REGISTRO (CREAR NUEVO USUARIO)
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('registerEmail').value.trim();
+            const pass = document.getElementById('registerPassword').value;
+
+            registerSubmitBtn.disabled = true;
+            registerSubmitBtn.innerText = "Creando cuenta...";
+            registerStatus.style.display = "none";
+            registerStatus.className = "status-message";
+
+            createUserWithEmailAndPassword(auth, email, pass)
+                .then((userCredential) => {
+                    registerStatus.innerText = "¡Cuenta creada con éxito! Iniciando sesión...";
+                    registerStatus.classList.add("success");
+                    registerStatus.style.display = "block";
+
+                    // Al crearse la cuenta en Firebase, el usuario se loguea automáticamente
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 1500);
+                })
+                .catch((error) => {
+                    registerSubmitBtn.disabled = false;
+                    registerSubmitBtn.innerText = "Crear Cuenta";
+                    registerStatus.classList.add("error");
+                    registerStatus.style.display = "block";
+
+                    if (error.code === 'auth/email-already-in-use') {
+                        registerStatus.innerText = "Este correo electrónico ya está registrado.";
+                    } else if (error.code === 'auth/weak-password') {
+                        registerStatus.innerText = "La contraseña es muy débil. Debe tener al menos 6 caracteres.";
+                    } else if (error.code === 'auth/invalid-email') {
+                        registerStatus.innerText = "El formato del correo electrónico no es válido.";
+                    } else {
+                        registerStatus.innerText = "Error al registrarse: " + error.message;
+                    }
+                });
+        });
+    </script>
+
+    <script>
+        function switchAuthTab(type) {
+            const forms = document.querySelectorAll('.auth-form');
+            const buttons = document.querySelectorAll('.auth-tab-btn');
+            
+            forms.forEach(form => form.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (type === 'login') {
+                document.getElementById('loginForm').classList.add('active');
+                document.getElementById('tabLogin').classList.add('active');
+            } else {
+                document.getElementById('registerForm').classList.add('active');
+                document.getElementById('tabRegister').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
