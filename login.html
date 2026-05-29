@@ -57,13 +57,14 @@
             margin-top: 6px;
         }
 
-        /* Selector de pestaña interno */
+        /* Selector de pestañas dinámico */
         .auth-tabs {
             display: flex;
             background-color: #1c1c1e;
             padding: 4px;
             border-radius: 8px;
             margin-bottom: 28px;
+            gap: 4px;
         }
 
         .auth-tab-btn {
@@ -77,6 +78,8 @@
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.2s ease;
+            text-align: center;
+            text-decoration: none;
         }
 
         .auth-tab-btn.active {
@@ -84,15 +87,12 @@
             color: #1ed760;
         }
 
-        /* Formularios */
-        .auth-form {
-            display: none;
+        .auth-tab-btn.whatsapp-link:hover {
+            color: #ffffff;
+            background-color: rgba(30, 215, 96, 0.1);
         }
 
-        .auth-form.active {
-            display: block;
-        }
-
+        /* Formulario */
         .form-group {
             margin-bottom: 20px;
         }
@@ -190,11 +190,14 @@
         </header>
 
         <div class="auth-tabs">
-            <button id="tabLogin" class="auth-tab-btn active" onclick="switchAuthTab('login')">Iniciar Sesión</button>
-            <button id="tabRegister" class="auth-tab-btn" onclick="switchAuthTab('register')">Registrarse</button>
+            <button id="tabLogin" class="auth-tab-btn active">Iniciar Sesión</button>
+            <a href="https://wa.me/50498013702?text=Hola%20Jonathan!%20Ya%20prob%C3%A9%20la%20rutina%20gratis%20y%20est%C3%A1%20excelente.%20Quiero%20adquirir%20el%20acceso%20al%20Panel%20%C3%89lite%20para%20desbloquear%20los%20dem%C3%A1s%20d%C3%ADas%20y%20mi%20dieta." 
+               target="_blank" class="auth-tab-btn whatsapp-link">
+               Solicitar Acceso
+            </a>
         </div>
 
-        <form id="loginForm" class="auth-form active">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="loginEmail">Correo Electrónico</label>
                 <input type="email" id="loginEmail" placeholder="ejemplo@correo.com" required autocomplete="email">
@@ -209,29 +212,14 @@
             <button type="submit" id="loginSubmitBtn" class="btn-submit">Ingresar al Panel</button>
         </form>
 
-        <form id="registerForm" class="auth-form">
-            <div class="form-group">
-                <label for="registerEmail">Correo Electrónico</label>
-                <input type="email" id="registerEmail" placeholder="nuevo@correo.com" required autocomplete="email">
-            </div>
-
-            <div class="form-group">
-                <label for="registerPassword">Contraseña (Mínimo 6 caracteres)</label>
-                <input type="password" id="registerPassword" placeholder="••••••••" required autocomplete="new-password">
-                <div id="registerStatus" class="status-message"></div>
-            </div>
-
-            <button type="submit" id="registerSubmitBtn" class="btn-submit">Crear Cuenta</button>
-        </form>
-
         <a href="index.html" class="back-home">← Volver al Inicio</a>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-        // Tus credenciales reales proporcionadas
+        // Tus credenciales reales de Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyBePnuPKzhwU_Tc0AFxdA2dW14QJxQ2XdE",
             authDomain: "premium-fitness-auth.firebaseapp.com",
@@ -246,17 +234,11 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // Elementos de la interfaz - Login
         const loginForm = document.getElementById('loginForm');
         const loginSubmitBtn = document.getElementById('loginSubmitBtn');
         const loginStatus = document.getElementById('loginStatus');
 
-        // Elementos de la interfaz - Registro
-        const registerForm = document.getElementById('registerForm');
-        const registerSubmitBtn = document.getElementById('registerSubmitBtn');
-        const registerStatus = document.getElementById('registerStatus');
-
-        // LÓGICA DE INICIO DE SESIÓN
+        // LÓGICA DE INICIO DE SESIÓN CON COMPROBACIÓN ANTI-BUCLE
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value.trim();
@@ -269,10 +251,14 @@
 
             signInWithEmailAndPassword(auth, email, pass)
                 .then((userCredential) => {
+                    // 1. Guardamos el pase de acceso en el navegador del cliente
+                    localStorage.setItem('usuarioLogueado', 'true');
+
                     loginStatus.innerText = "¡Acceso concedido! Redirigiendo...";
                     loginStatus.classList.add("success");
                     loginStatus.style.display = "block";
 
+                    // 2. Redirección fluida al index
                     setTimeout(() => {
                         window.location.href = "index.html";
                     }, 1300);
@@ -292,64 +278,6 @@
                     }
                 });
         });
-
-        // LÓGICA DE REGISTRO (CREAR NUEVO USUARIO)
-        registerForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('registerEmail').value.trim();
-            const pass = document.getElementById('registerPassword').value;
-
-            registerSubmitBtn.disabled = true;
-            registerSubmitBtn.innerText = "Creando cuenta...";
-            registerStatus.style.display = "none";
-            registerStatus.className = "status-message";
-
-            createUserWithEmailAndPassword(auth, email, pass)
-                .then((userCredential) => {
-                    registerStatus.innerText = "¡Cuenta creada con éxito! Iniciando sesión...";
-                    registerStatus.classList.add("success");
-                    registerStatus.style.display = "block";
-
-                    // Al crearse la cuenta en Firebase, el usuario se loguea automáticamente
-                    setTimeout(() => {
-                        window.location.href = "login.html";
-                    }, 1500);
-                })
-                .catch((error) => {
-                    registerSubmitBtn.disabled = false;
-                    registerSubmitBtn.innerText = "Crear Cuenta";
-                    registerStatus.classList.add("error");
-                    registerStatus.style.display = "block";
-
-                    if (error.code === 'auth/email-already-in-use') {
-                        registerStatus.innerText = "Este correo electrónico ya está registrado.";
-                    } else if (error.code === 'auth/weak-password') {
-                        registerStatus.innerText = "La contraseña es muy débil. Debe tener al menos 6 caracteres.";
-                    } else if (error.code === 'auth/invalid-email') {
-                        registerStatus.innerText = "El formato del correo electrónico no es válido.";
-                    } else {
-                        registerStatus.innerText = "Error al registrarse: " + error.message;
-                    }
-                });
-        });
-    </script>
-
-    <script>
-        function switchAuthTab(type) {
-            const forms = document.querySelectorAll('.auth-form');
-            const buttons = document.querySelectorAll('.auth-tab-btn');
-            
-            forms.forEach(form => form.classList.remove('active'));
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            if (type === 'login') {
-                document.getElementById('loginForm').classList.add('active');
-                document.getElementById('tabLogin').classList.add('active');
-            } else {
-                document.getElementById('registerForm').classList.add('active');
-                document.getElementById('tabRegister').classList.add('active');
-            }
-        }
     </script>
 </body>
 </html>

@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Lorenzana • Premium Fitness</title>
+
+    <script>
+        if (localStorage.getItem('usuarioLogueado') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <style>
         /* --- ESTILO INSPIRADO EN APPLE FITNESS+ & SPOTIFY --- */
         * {
@@ -198,8 +205,8 @@
                         <h3>Press Banca Plana</h3>
                         <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
-                            <li><b>Peso:</b> Pesas de 15 Lbs por brazo. o barra de 20 libras</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones.</li>
+                            <li><b>Peso:</b> Pesas de 15 Lbs por brazo o barra de 20 libras.</li>
                         </ul>
                     </div>
                 </div>
@@ -213,10 +220,10 @@
                     </div>
                     <div class="card-content">
                         <h3>Lat Pull Down</h3>
-                       <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
-                            <li><b>Peso:</b> 3 o 4 barritas selectoras</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones.</li>
+                            <li><b>Peso:</b> 3 o 4 barritas selectoras.</li>
                         </ul>
                     </div>
                 </div>
@@ -229,10 +236,10 @@
                         </video>
                     </div>
                     <div class="card-content">
-                        <h3>Serrucho</h3>
-                     <ul class="tips-list">
+                        <h3>Serrucho con Mancuerna</h3>
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones por brazo.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones por brazo.</li>
                             <li><b>Peso:</b> Pesas de 15 Lbs por brazo.</li>
                         </ul>
                     </div>
@@ -246,18 +253,16 @@
                         </video>
                     </div>
                     <div class="card-content">
-                        <h3>Remo</h3>
-                       <ul class="tips-list">
+                        <h3>Remo en Polea baja</h3>
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 15 Repeticiones.</li>
+                            <li><b>Repeticiones:</b> Haremos 15 repeticiones.</li>
                             <li><b>Peso:</b> 3 o 4 barras selectoras.</li>
                         </ul>
                     </div>
                 </div>
 
-
-
-        <div class="workout-card">
+                <div class="workout-card">
                     <div class="video-wrapper">
                         <video controls playsinline controlsList="nodownload">
                             <source src="videos/planchas para brazos.mp4" type="video/mp4">
@@ -266,17 +271,14 @@
                     </div>
                     <div class="card-content">
                         <h3>Plancha con Brazos Rígidos</h3>
-                       <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 1 minuto en la posisicon indicada.</li>
-                          
+                            <li><b>Repeticiones:</b> Haremos 1 minuto en la posición indicada.</li>
                         </ul>
                     </div>
                 </div>
                 
-
- 
-  <div class="workout-card">
+                <div class="workout-card">
                     <div class="video-wrapper">
                         <video controls playsinline controlsList="nodownload">
                             <source src="videos/apertuas pecho2.mp4" type="video/mp4">
@@ -284,20 +286,14 @@
                         </video>
                     </div>
                     <div class="card-content">
-                        <h3>Aperturas</h3>
-                       <ul class="tips-list">
+                        <h3>Aperturas en Contactor (Pec Deck)</h3>
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 5 series con descansos de 60 segundos.</li>
                             <li><b>Repeticiones:</b> Haremos 20 repeticiones despacio.</li>
                             <li><b>Peso:</b> 3 o 4 barras selectoras.</li>
-                          
                         </ul>
                     </div>
                 </div>
-                
-
-
-
-        
 
             </div> 
         </main>

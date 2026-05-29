@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan de Mantenimiento • Premium Fitness</title>
+
+    <script>
+        if (localStorage.getItem('usuarioLogueado') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <style>
+        /* --- ESTILO INSPIRADO EN APPLE FITNESS+ & SPOTIFY --- */
         * {
             margin: 0;
             padding: 0;
@@ -74,6 +82,7 @@
             margin-bottom: 32px;
             font-size: 0.95rem;
             color: #f5f5f7;
+            line-height: 1.5;
         }
 
         .section-title {
@@ -97,6 +106,7 @@
             border-radius: 16px;
             border: 1px solid #1c1c1e;
             padding: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .diet-card h3 {
@@ -116,6 +126,14 @@
             color: #a1a1a6;
             margin-bottom: 14px;
             line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .meal-list li:last-child {
+            margin-bottom: 0;
         }
 
         .meal-list b {
@@ -130,7 +148,7 @@
             font-size: 0.75rem;
             font-weight: bold;
             text-transform: uppercase;
-            margin-right: 6px;
+            display: inline-block;
         }
 
         footer {
@@ -162,25 +180,47 @@
             
             <h2 class="section-title">Estructura Nutricional Estándar</h2>
 
-            <!-- Opción de Menú A -->
             <div class="diet-card">
                 <h3>Estructura 1 (Días de Entrenamiento Intenso)</h3>
                 <ul class="meal-list">
-                    <li><span class="badge-tag">Desayuno</span><b>Desayuno Energético:</b> 2 huevos enteros revueltos con tomate y cebolla, 1 taza completa de frijoles cocidos enteros, 1.5 onzas de queso fresco o cuajada, y 2 tortillas de maíz medianas.</li>
-                    <li><span class="badge-tag">Almuerzo</span><b>Almuerzo Completo:</b> 160g de pechuga de pollo o filete de res magra a la plancha, 1 taza de arroz blanco o integral cocido, 1/2 taza de plátano maduro horneado o cocido, y ensalada fresca de repollo o lechuga aliñada con limón.</li>
-                    <li><span class="badge-tag">Merienda</span><b>Snack Saludable:</b> 1/2 aguacate mediano con sal y pimienta, acompañado de 1 tortilla de maíz tostada al comal.</li>
-                    <li><span class="badge-tag">Cena</span><b>Cena Estructural:</b> 150g de filete de pescado (tilapia) o pollo desmenuzado, 1/2 taza de puré de papa casero (sin mantequilla cremosa en exceso) o pataste cocido, y vegetales verdes salteados.</li>
+                    <li>
+                        <span class="badge-tag">Desayuno</span>
+                        <span><b>Desayuno Energético:</b> 2 huevos enteros revueltos con tomate y cebolla, 1 taza completa de frijoles cocidos enteros, 1.5 onzas de queso fresco o cuajada, y 2 tortillas de maíz medianas.</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Almuerzo</span>
+                        <span><b>Almuerzo Completo:</b> 160g de pechuga de pollo o filete de res magra a la plancha, 1 taza de arroz blanco o integral cocido, 1/2 taza de plátano maduro horneado o cocido, y ensalada fresca de repollo o lechuga aliñada con limón.</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Merienda</span>
+                        <span><b>Snack Saludable:</b> 1/2 aguacate mediano con sal y pimienta, acompañado de 1 tortilla de maíz tostada al comal.</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Cena</span>
+                        <span><b>Cena Estructural:</b> 150g de filete de pescado (tilapia) o pollo desmenuzado, 1/2 taza de puré de papa casero (sin mantequilla cremosa en exceso) o pataste cocido, y vegetales verdes salteados.</span>
+                    </li>
                 </ul>
             </div>
 
-            <!-- Opción de Menú B -->
             <div class="diet-card">
                 <h3>Estructura 2 (Días de Actividad Moderada)</h3>
                 <ul class="meal-list">
-                    <li><span class="badge-tag">Desayuno</span><b>Carga Sostenida:</b> 3 huevos (2 enteros + 1 clara) cocinados con hongo o espinaca, 1 plátano maduro entero cocido (hervido o al horno) y 1 taza de café negro o con un chorrito de leche descremada sin azúcar.</li>
-                    <li><span class="badge-tag">Almuerzo</span><b>Bistec Casero:</b> 150g de carne de res magra encebollada, 1 taza de frijoles de la olla, 1 tortilla de maíz y una porción abundante de verduras al vapor (zanahoria, calabacita/ayote tierno y patastillo).</li>
-                    <li><span class="badge-tag">Merienda</span><b>Fruta y Proteína:</b> 1 taza de papaya o piña picada junto con un puñado pequeño (1 onza) de semillas de marañón o almendras naturales.</li>
-                    <li><span class="badge-tag">Cena</span><b>Cena Rápida Balanceada:</b> 2 tortillas con quesillo artesanal (tipo baleada ligera pero solo con quesillo derretido al comal) acompañadas de 120g de pechuga de pollo en tiras y rodajas de tomate.</li>
+                    <li>
+                        <span class="badge-tag">Desayuno</span>
+                        <span><b>Carga Sostenida:</b> 3 huevos (2 enteros + 1 clara) cocinados con hongos o espinaca, 1 plátano maduro entero cocido (hervido o al horno) y 1 taza de café negro o con un chorrito de leche descremada sin azúcar.</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Almuerzo</span>
+                        <span><b>Bistec Casero:</b> 150g de carne de res magra encebollada, 1 taza de frijoles de la olla, 1 tortilla de maíz y una porción abundante de verduras al vapor (zanahoria, calabacita/ayote tierno y patastillo).</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Merienda</span>
+                        <span><b>Fruta y Proteína:</b> 1 taza de papaya o piña picada junto con un puñado pequeño (1 onza) de semillas de marañón o almendras naturales.</span>
+                    </li>
+                    <li>
+                        <span class="badge-tag">Cena</span>
+                        <span><b>Cena Rápida Balanceada:</b> 2 tortillas con quesillo artesanal (tipo baleada ligera pero solo con quesillo derretido al comal) acompañadas de 120g de pechuga de pollo en tiras y rodajas de tomate.</span>
+                    </li>
                 </ul>
             </div>
 
@@ -190,5 +230,6 @@
     <footer>
         &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
     </footer>
+
 </body>
 </html>

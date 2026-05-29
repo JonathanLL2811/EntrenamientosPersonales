@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonathan Lorenzana • Premium Fitness</title>
+
+    <script>
+        if (localStorage.getItem('usuarioLogueado') !== 'true') {
+            window.location.href = "login.html";
+        }
+    </script>
+
     <style>
         /* --- ESTILO INSPIRADO EN APPLE FITNESS+ & SPOTIFY --- */
         * {
@@ -160,6 +167,10 @@
             color: #f5f5f7; /* Resalta las palabras clave en blanco brillante */
         }
 
+        .tips-list .alert-text {
+            color: #e74c3c;
+        }
+
         /* Footer minimalista de marca */
         footer {
             text-align: center;
@@ -198,8 +209,8 @@
                         <h3>Press Militar con Barra</h3>
                         <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
-                            <li><b>Peso:</b> Pesas de 15 Lbs por brazo. o barra de 20 libras</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones.</li>
+                            <li><b>Peso:</b> Pesas de 15 Lbs por brazo o barra de 20 libras.</li>
                         </ul>
                     </div>
                 </div>
@@ -213,9 +224,9 @@
                     </div>
                     <div class="card-content">
                         <h3>Elevaciones Laterales</h3>
-                       <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones.</li>
                             <li><b>Peso:</b> Pesas de 10 Lbs por brazo.</li>
                         </ul>
                     </div>
@@ -230,9 +241,9 @@
                     </div>
                     <div class="card-content">
                         <h3>Elevaciones Frontales</h3>
-                     <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 20 Repeticiones.</li>
+                            <li><b>Repeticiones:</b> Haremos 20 repeticiones.</li>
                             <li><b>Peso:</b> Pesas de 10 Lbs por brazo.</li>
                         </ul>
                     </div>
@@ -247,16 +258,15 @@
                     </div>
                     <div class="card-content">
                         <h3>Curl de Bíceps Alterno</h3>
-                       <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 15 Repeticiones por brazo.</li>
+                            <li><b>Repeticiones:</b> Haremos 15 repeticiones por brazo.</li>
                             <li><b>Peso:</b> Pesas de 10 Lbs por brazo.</li>
                         </ul>
                     </div>
                 </div>
-                
 
-<div class="workout-card">
+                <div class="workout-card">
                     <div class="video-wrapper">
                         <video controls playsinline controlsList="nodownload">
                             <source src="videos/predicador.mp4" type="video/mp4">
@@ -264,19 +274,15 @@
                         </video>
                     </div>
                     <div class="card-content">
-                        <h3>Curl de Bíceps en maquina predicador</h3>
-                       <ul class="tips-list">
+                        <h3>Curl de Bíceps en Máquina Predicador</h3>
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 6 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 25 Repeticiones por brazo.</li>
+                            <li><b>Repeticiones:</b> Haremos 25 repeticiones por brazo.</li>
                             <li><b>Peso:</b> Pesas de 10 Lbs por brazo.</li>
-                             <li><b>ALERTA:</b> HACER CADA REPETICION LO LAS LENTA POSIBLE.</li>
+                            <li><b class="alert-text">ALERTA:</b> Hacer cada repetición lo más lento posible.</li>
                         </ul>
                     </div>
                 </div>
-
-
-
-
 
                 <div class="workout-card">
                     <div class="video-wrapper">
@@ -287,21 +293,20 @@
                     </div>
                     <div class="card-content">
                         <h3>Plancha con Brazos Rígidos</h3>
-                       <ul class="tips-list">
+                        <ul class="tips-list">
                             <li><b>Series:</b> Vamos a realizar 4 series con descansos de 60 segundos.</li>
-                            <li><b>Repeticiones:</b> Haremos 1 minuto en la posisicon indicada.</li>
-                          
+                            <li><b>Repeticiones:</b> Haremos 1 minuto en la posición indicada.</li>
                         </ul>
                     </div>
                 </div>
 
             </div> 
         </main>
-    </div>
 
-    <footer>
-        &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
-    </footer>
+        <footer>
+            &copy; 2026 Jonathan Lorenzana. Desarrollado con los más altos estándares de rendimiento.
+        </footer>
+    </div>
 
 </body>
 </html>
